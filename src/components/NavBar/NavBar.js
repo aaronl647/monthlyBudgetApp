@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, Route } from "react-router-dom";
-import HeroContent from "../HeroContent/HeroContent";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -10,7 +9,14 @@ function NavBar() {
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>
-        This is the NavBar
+        <ul>
+          <li>
+            <Link> Entries</Link>
+          </li>
+          <li>
+            <Link> Breakdown</Link>
+          </li>
+        </ul>
       </Navbar>
     </div>
   );
