@@ -11,10 +11,10 @@ function NavBar() {
         </Navbar.Brand>
         <ul>
           <li>
-            <Link> Entries</Link>
+            <Link to="/entries"> Entries</Link>
           </li>
           <li>
-            <Link> Breakdown</Link>
+            <Link to="/breakdown"> Breakdown</Link>
           </li>
         </ul>
       </Navbar>

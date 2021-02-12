@@ -1,8 +1,9 @@
 import React from "react";
+import "./HeroContent.css";
 
 function HeroContent() {
   return (
-    <div>
+    <div className="hero-container">
       <h1>Hero Content</h1>
     </div>
   );
