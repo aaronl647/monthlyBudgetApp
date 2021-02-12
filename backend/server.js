@@ -1,23 +1,17 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
+var express = require("express");
+var bodyParser = require("body-parser");
 const cors = require("cors");
-const mongoose = require("mongoose");
-const PORT = 4000;
+
+require("./config/database");
+
+var app = express();
 
 app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017budget-tracker", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const connection = mongoose.connection;
+var port = process.env.PORT || 4000;
 
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully.");
-});
-
-app.listen(PORT, () => {
-  console.log("Server is running on Port: " + PORT);
+app.listen(port, function () {
+  console.log("Server is running on Port: " + port);
 });
