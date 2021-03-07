@@ -4,6 +4,9 @@ module.exports = {
   index,
   show,
   newEntry,
+  update,
+  verifyDelete,
+  deleteOne,
 };
 
 async function index(req, res) {
@@ -28,4 +31,48 @@ async function newEntry(req, res) {
     .catch((err) => {
       res.status(400).send("adding new expense failed");
     });
+}
+
+async function update(req, res) {
+  await Expense.findById(req.params.id, (err, entry) => {
+    if (!entry) {
+      res.status(404).send("data is not found");
+    } else {
+      entry.description = req.body.description;
+      entry.dueDate = req.body.dueDate;
+      entry.amountDue = req.body.amountDue;
+      entry.paymentOption = req.body.paymentOption;
+      entry.occurance = req.body.occurance;
+
+      entry
+        .save()
+        .then((expense) => {
+          res.json("expense updated!");
+        })
+        .catch((err) => {
+          res.status(400).send("update not possible");
+        });
+    }
+  });
+}
+
+async function verifyDelete(req, res) {
+  const id = req.params.id;
+  await Expense.findById(id, (err, expense) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).json(expense);
+    }
+  });
+}
+
+async function deleteOne(req, res) {
+  await Expense.findOneAndDelete(req.params.id, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).send("deleted expense!");
+    }
+  });
 }

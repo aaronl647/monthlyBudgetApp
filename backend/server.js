@@ -1,10 +1,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-const cors = require("cors");
+var cors = require("cors");
 
 require("./config/database");
 
-var budgetRouter = require("./routes/api/budgetRoutes");
+var budgetRouter = require("./routes/api/budget");
 
 var app = express();
 
@@ -13,8 +13,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use("/budget", budgetRouter);
+// app.use("/income", incomeRouter);
 
-var port = process.env.PORT || 4001;
+var port = process.env.PORT || 4000;
 
 app.listen(port, function () {
   console.log("Server is running on Port: " + port);

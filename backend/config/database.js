@@ -1,6 +1,10 @@
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/budget-tracker", {
+require("dotenv").config();
+
+const url = process.env.DB_URL;
+
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
