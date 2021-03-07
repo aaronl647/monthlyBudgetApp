@@ -5,6 +5,7 @@ var cors = require("cors");
 require("./config/database");
 
 var budgetRouter = require("./routes/api/budget");
+var incomeRouter = require("./routes/api/budget");
 
 var app = express();
 
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use("/budget", budgetRouter);
-// app.use("/income", incomeRouter);
+app.use("/income", incomeRouter);
 
 var port = process.env.PORT || 4000;
 

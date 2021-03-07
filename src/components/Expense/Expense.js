@@ -4,10 +4,7 @@ import React, { Component } from "react";
 // import "./Expense.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import dotenv from "dotenv";
 import axios from "axios";
-
-dotenv.config();
 
 export default class Expense extends Component {
   constructor(props) {
@@ -62,7 +59,7 @@ export default class Expense extends Component {
     };
 
     axios
-      .post(process.env.DB_URL, newExpense)
+      .post("http://localhost:4000/budget/expense/add", newExpense)
       .then((res) => console.log(res.data));
 
     this.setState({
