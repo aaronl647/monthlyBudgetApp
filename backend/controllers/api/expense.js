@@ -4,7 +4,7 @@ module.exports = {
   index,
   show,
   newEntry,
-  update,
+  updateEntry,
   verifyDelete,
   deleteOne,
 };
@@ -33,13 +33,13 @@ async function newEntry(req, res) {
     });
 }
 
-async function update(req, res) {
+async function updateEntry(req, res) {
   await Expense.findById(req.params.id, (err, entry) => {
     if (!entry) {
       res.status(404).send("data is not found");
     } else {
       entry.description = req.body.description;
-      entry.dueDate = req.body.dueDate;
+      entry.startDate = req.body.startDate;
       entry.amountDue = req.body.amountDue;
       entry.paymentOption = req.body.paymentOption;
       entry.occurance = req.body.occurance;

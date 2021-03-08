@@ -52,7 +52,7 @@ export default class Expense extends Component {
 
     const newExpense = {
       description: this.state.description,
-      starttDate: this.state.startDate,
+      startDate: this.state.startDate,
       amountDue: this.state.amountDue,
       paymentOption: this.state.paymentOption,
       occurance: this.state.occurance,

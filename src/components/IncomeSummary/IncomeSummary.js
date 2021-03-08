@@ -44,7 +44,7 @@ export default class IncomeSummary extends Component {
     axios
       .get("http://localhost:4000/budget/income")
       .then((result) => {
-        this.setState({ income: result.data });
+        this.setState({ income: result.data, isOldestFirst: true });
       })
       .catch(function (err) {
         console.log(err);
