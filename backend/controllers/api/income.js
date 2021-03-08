@@ -43,7 +43,7 @@ async function update(res, req) {
 }
 
 async function deleteOne(req, res) {
-  await Income.findOneAndDelete(req.params.id, (err) => {
+  await Income.findOneAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
       console.log(err);
     } else {

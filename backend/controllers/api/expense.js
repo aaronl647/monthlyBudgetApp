@@ -68,7 +68,7 @@ async function verifyDelete(req, res) {
 }
 
 async function deleteOne(req, res) {
-  await Expense.findOneAndDelete(req.params.id, (err) => {
+  await Expense.findOneAndDelete({ _id: req.params.id }, (err) => {
     if (err) {
       console.log(err);
     } else {

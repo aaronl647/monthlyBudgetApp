@@ -66,7 +66,6 @@ export default class ExpenseSummary extends Component {
   render() {
     return (
       <div>
-        <h3>Expenses</h3>
         <table
           className="table table-striped"
           style={{ marginTop: 20, alignItems: "center" }}
