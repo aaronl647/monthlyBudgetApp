@@ -16,6 +16,9 @@ function NavBar() {
           <li>
             <Link to="/breakdown"> Breakdown</Link>
           </li>
+          <li>
+            <Link to="/summary"> Summary</Link>
+          </li>
         </ul>
       </Navbar>
     </div>
