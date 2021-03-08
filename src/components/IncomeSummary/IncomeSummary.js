@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 
-const Exp = (props) => (
+const Inc = (props) => (
   <tr>
     <td>{props.item.description}</td>
     <td>{moment(props.item.startDate).format("dddd MMMM D, YYYY")}</td>
-    <td>{props.item.amountDue}</td>
-    <td>{props.item.paymentOption}</td>
-    <td>{props.item.occurance}</td>
+    <td>{props.item.amount}</td>
     <td>
       <Link to={"/edit/" + props.item._id}>Edit</Link>
       <br />
@@ -18,44 +16,44 @@ const Exp = (props) => (
   </tr>
 );
 
-export default class ExpenseSummary extends Component {
+export default class IncomeSummary extends Component {
   constructor(props) {
     super(props);
     this.toggleSortDate = this.toggleSortDate.bind(this);
     this.state = {
-      expense: [],
+      income: [],
       isOldestFirst: true,
     };
   }
 
   sortByDate() {
-    const { expense } = this.state;
-    var newDate = expense;
+    const { income } = this.state;
+    var newDate = income;
     if (this.state.isOldestFirst) {
-      newDate = expense.sort((a, b) => a.startDate < b.startDate);
+      newDate = income.sort((a, b) => a.startDate < b.startDate);
     } else {
-      newDate = expense.sort((a, b) => a.startDate > b.startDate);
+      newDate = income.sort((a, b) => a.startDate > b.startDate);
     }
     this.setState({
       isOldestFirst: !this.state.isOldestFirst,
-      expense: newDate,
+      income: newDate,
     });
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/budget/expense")
+      .get("http://localhost:4000/budget/income")
       .then((result) => {
-        this.setState({ expense: result.data, isOldestFirst: true });
+        this.setState({ income: result.data });
       })
       .catch(function (err) {
         console.log(err);
       });
   }
 
-  expenseList() {
-    return this.state.expense.map(function (currentExp, i) {
-      return <Exp item={currentExp} key={i} />;
+  incomeList() {
+    return this.state.income.map(function (currentInc, i) {
+      return <Inc item={currentInc} key={i} />;
     });
   }
 
@@ -66,7 +64,6 @@ export default class ExpenseSummary extends Component {
   render() {
     return (
       <div>
-        <h3>Expenses</h3>
         <table
           className="table table-striped"
           style={{ marginTop: 20, alignItems: "center" }}
@@ -75,15 +72,13 @@ export default class ExpenseSummary extends Component {
             <tr>
               <th>Description</th>
               <th>
-                <Link onClick={this.toggleSortDate}>Due Date</Link>
+                <Link onClick={this.toggleSortDate}>Pay Date</Link>
               </th>
-              <th>Amount Due</th>
-              <th>Payment Option</th>
-              <th>Occurance</th>
+              <th>Amount</th>
               <th>Edit/Delete</th>
             </tr>
           </thead>
-          <tbody>{this.expenseList()}</tbody>
+          <tbody>{this.incomeList()}</tbody>
         </table>
       </div>
     );
