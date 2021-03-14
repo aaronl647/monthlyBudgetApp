@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
-import VerifyDelete from "../VerifyDelete/VerifyDelete";
 
 const Exp = (props) => (
   <tr>
@@ -14,9 +13,7 @@ const Exp = (props) => (
     <td>
       <Link to={"/edit/" + props.item._id}>Edit</Link>
       <br />
-      <Link to={"/delete/" + props.item._id} component={VerifyDelete}>
-        Delete{" "}
-      </Link>
+      <Link to={"/delete/" + props.item._id}>Delete </Link>
     </td>
   </tr>
 );

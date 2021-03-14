@@ -6,8 +6,9 @@ import Summary from "./components/pages/Summary";
 import { Switch, Route } from "react-router-dom";
 import Login from "./components/UserPages/Login";
 import Signup from "./components/UserPages/Signup";
+import VerifyDelete from "./components/VerifyDelete/VerifyDelete";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <NavBar />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/summary" component={Summary} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/delete" component={VerifyDelete} />
       </Switch>
     </div>
   );
