@@ -6,6 +6,7 @@ require("./config/database");
 
 var budgetRouter = require("./routes/api/budget");
 var incomeRouter = require("./routes/api/budget");
+var userRouter = require("./routes/api/users");
 
 var app = express();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use("/budget", budgetRouter);
 app.use("/income", incomeRouter);
+app.use("/user", userRouter);
 
 var port = process.env.PORT || 4000;
 
