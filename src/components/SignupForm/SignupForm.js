@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import userService from "../../utils/userService";
 
 export default class SignupForm extends Component {
   state = {
@@ -8,6 +8,7 @@ export default class SignupForm extends Component {
     password: "",
     passwordConf: "",
   };
+
   handleChange = (e) => {
     this.props.updateMessage("");
     this.setState({
@@ -18,9 +19,12 @@ export default class SignupForm extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("await goes here");
+      await userService.signup(this.state);
+      this.props.handleSignup();
+      // this.props.handSignupOrLogin();
+      this.props.history.push("/");
     } catch (err) {
-      console.log(err);
+      this.props.updateMessage(err.message);
     }
   };
 
@@ -70,12 +74,7 @@ export default class SignupForm extends Component {
                 name="passwordConf"
                 onChange={this.handleChange}
               />
-              <input
-                name="submit"
-                type="button"
-                className="btn btn-primary"
-                value="Submit"
-              />
+              <button className="btn btn-default">Sign Up</button>
             </div>
           </div>
         </form>

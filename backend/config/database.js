@@ -9,6 +9,7 @@ mongoose.connect(url, {
   useUnifiedTopology: true,
 });
 
+mongoose.set("useFindAndModify", false);
 const db = mongoose.connection;
 
 db.once("open", function () {
