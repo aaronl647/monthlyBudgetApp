@@ -1,12 +1,27 @@
 import React, { Component } from "react";
+import userService from "../../utils/userService";
 
-export default class Login extends Component {
+export default class LoginPage extends Component {
   state = {
     email: "",
     password: "",
   };
-  handleSubmit = (e) => {
-    console.log("submitted");
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await userService.signup(this.state);
+      this.props.handleSignupOrLogin();
+      this.props.history.push("/");
+    } catch (err) {
+      alert("Invalid Credentials!");
+    }
   };
 
   render() {
@@ -21,6 +36,7 @@ export default class Login extends Component {
               placeholder="name@email.com"
               value={this.state.email}
               name="email"
+              onChange={this.handleChange}
             />
             <input
               type="password"
@@ -28,13 +44,9 @@ export default class Login extends Component {
               placeholder="password"
               value={this.state.password}
               name="password"
+              onChange={this.handleChange}
             />
-            <input
-              type="button"
-              className="btn btn-primary"
-              value="Log In"
-              name="login"
-            />
+            <button className="btn btn-primary">Log In</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import userService from "../../utils/userService";
+import { Form } from "react-bootstrap";
+import "./SignupForm.css";
 
 export default class SignupForm extends Component {
   state = {
@@ -20,8 +22,7 @@ export default class SignupForm extends Component {
     e.preventDefault();
     try {
       await userService.signup(this.state);
-      this.props.handleSignup();
-      // this.props.handSignupOrLogin();
+      this.props.handleSignupOrLogin();
       this.props.history.push("/");
     } catch (err) {
       this.props.updateMessage(err.message);
@@ -38,46 +39,50 @@ export default class SignupForm extends Component {
   render() {
     return (
       <div>
-        <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                value={this.state.name}
-                name="name"
-                onChange={this.handleChange}
-              />
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-                value={this.state.email}
-                name="email"
-                onChange={this.handleChange}
-              />
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                value={this.state.password}
-                name="password"
-                onChange={this.handleChange}
-              />
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password Confirmation"
-                value={this.state.passwordConf}
-                name="passwordConf"
-                onChange={this.handleChange}
-              />
-              <button className="btn btn-default">Sign Up</button>
-            </div>
-          </div>
-        </form>
+        <h1 className="header-footer">Sign Up</h1>
+        <Form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <Form.Group controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Name"
+              value={this.state.name}
+              name="name"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="email"
+              value={this.state.email}
+              name="email"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="password"
+              value={this.state.password}
+              name="password"
+              onChange={this.handleChange}
+            />
+          </Form.Group>{" "}
+          <Form.Group controlId="formBasicPasswordConf">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="passwordConf"
+              value={this.state.passwordConf}
+              name="passwordConf"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <button className="btn btn-default">Sign Up</button>
+        </Form>
       </div>
     );
   }
