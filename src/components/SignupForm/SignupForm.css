@@ -1,3 +1,14 @@
 h1 {
   text-align: center;
 }
+.signup-form {
+  padding: 3rem;
+}
+.signup-container {
+  padding: 2rem;
+}
+.signup-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

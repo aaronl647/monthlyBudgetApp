@@ -16,7 +16,7 @@ export default class LoginPage extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await userService.signup(this.state);
+      await userService.login(this.state);
       this.props.handleSignupOrLogin();
       this.props.history.push("/");
     } catch (err) {
@@ -46,7 +46,9 @@ export default class LoginPage extends Component {
               name="password"
               onChange={this.handleChange}
             />
-            <button className="btn btn-primary">Log In</button>
+            <button className="btn btn-primary" type="submit">
+              Log In
+            </button>
           </div>
         </form>
       </div>

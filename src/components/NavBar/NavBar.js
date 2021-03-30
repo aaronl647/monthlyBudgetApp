@@ -1,41 +1,48 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   let nav = props.user ? (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>
         <span className="welcome">Welcome back, {props.user.name}!</span>
-        <ul>
-          <li>
-            <Link to="/entries"> Entries</Link>
-          </li>
-          <li>
-            <Link to="/breakdown"> Breakdown</Link>
-          </li>
-          <li>
-            <Link to="/summary"> Summary</Link>
-          </li>
-          <li>
-            <Link to="" className="Navbar-link" onClick={props.handleLogout}>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="Entries">
+              <NavDropdown.Item href="/expense">Expenses</NavDropdown.Item>
+              <NavDropdown.Item href="/income">Incomes</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/breakdown"> Breakdown</Nav.Link>
+            <Nav.Link href="/summary"> Summary</Nav.Link>
+            <Nav.Link
+              href="/"
+              className="Navbar-link"
+              onClick={props.handleLogout}
+            >
               Log Out
-            </Link>
-          </li>
-        </ul>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
     </div>
   ) : (
     <div>
-      <li>
-        <Link to="/login"> Log In</Link>
-      </li>
-      <li>
-        <Link to="/signup"> Sign Up</Link>
-      </li>
+      <Navbar bg="light" expand="lg" sticky="top">
+        <Navbar.Brand>
+          <Link to="/">Budget Tracker</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav.Link to="/login"> Log In</Nav.Link>
+          <Nav.Link to="/signup"> Sign Up</Nav.Link>
+        </Navbar.Collapse>
+      </Navbar>
     </div>
   );
 

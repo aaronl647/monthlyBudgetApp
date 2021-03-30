@@ -14,6 +14,7 @@ let User = new Schema({
     unique: true,
   },
   password: String,
+  budget: { type: mongoose.Schema.Types.ObjectId, ref: "Budget" },
 });
 
 User.set("toJSON", {

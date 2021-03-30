@@ -25,6 +25,7 @@ export default class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
+
   render() {
     return (
       <div className="App">
