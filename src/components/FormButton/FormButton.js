@@ -9,7 +9,7 @@ function FormButton() {
   return (
     <div className="form-section">
       <div className="button-container">
-        <Button onClick={onClick}>Add</Button>
+        <Button onClick={onClick}>+</Button>
       </div>
       <div className="content-container">
         {showIncomeForm ? <IncomeForm /> : null}

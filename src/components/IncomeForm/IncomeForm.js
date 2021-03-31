@@ -20,6 +20,10 @@ export default class Income extends Component {
     };
   }
 
+  refreshPage() {
+    window.location.reload();
+  }
+
   onChangeDescription(e) {
     this.setState({
       description: e.target.value,
@@ -34,25 +38,28 @@ export default class Income extends Component {
     this.setState({ amount: e.target.value });
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
+    try {
+      const newIncome = {
+        description: this.state.description,
+        startDate: this.state.startDate,
+        amount: this.state.amount,
+      };
+      axios
+        .post("http://localhost:4000/budget/income/add", newIncome)
+        .then((res) => console.log(res.data));
+      this.refreshPage();
 
-    const newIncome = {
-      description: this.state.description,
-      startDate: this.state.startDate,
-      amount: this.state.amount,
-    };
-    axios
-      .post("http://localhost:4000/budget/income/add", newIncome)
-      .then((res) => console.log(res.data));
-
-    this.setState({
-      description: "",
-      startDate: new Date(),
-      amount: "",
-    });
-  }
-
+      this.setState({
+        description: "",
+        startDate: new Date(),
+        amount: "",
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   render() {
     return (
       <div className="container">
