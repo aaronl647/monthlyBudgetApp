@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Income.css";
+import "./IncomeForm.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
@@ -56,9 +56,8 @@ export default class Income extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Add Income Here</h1>
         <div className="border">
-          <form className="income" onSubmit={this.onSubmit}>
+          <form className="income-form" onSubmit={this.onSubmit}>
             <label>
               Description:
               <input
@@ -66,6 +65,7 @@ export default class Income extends Component {
                 type="text"
                 value={this.state.description}
                 onChange={this.onChangeDescription}
+                required
               />
             </label>
             <label>
@@ -74,6 +74,7 @@ export default class Income extends Component {
                 selected={this.state.startDate}
                 onChange={this.onChangeDateChange}
                 name="startDate"
+                required
               />
             </label>
             <label>
@@ -85,6 +86,7 @@ export default class Income extends Component {
                 step="0.01"
                 value={this.state.amount}
                 onChange={this.onChangeAmount}
+                required
               />
             </label>
             <br />

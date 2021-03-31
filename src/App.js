@@ -4,13 +4,15 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import LoginPage from "./components/UserPages/LoginPage";
 import Signup from "./components/UserPages/Signup";
+
 import Home from "./components/pages/Home";
 import Summary from "./components/pages/Summary/Summary";
 import { Switch, Route } from "react-router-dom";
 
-import Expense from "./components/Expense/Expense";
-import Income from "./components/Income/Income";
-
+// import Expense from "./components/Expense/Expense";
+// import Income from "./components/IncomeForm/IncomeForm";
+import ExpensePage from "./components/ExpensePage/ExpensePage";
+import IncomePage from "./components/IncomePage/IncomePage";
 export default class App extends Component {
   constructor() {
     super();
@@ -34,8 +36,8 @@ export default class App extends Component {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/expense" component={Expense} />
-          <Route path="/income" component={Income} />
+          <Route path="/expense" component={ExpensePage} />
+          <Route path="/income" component={IncomePage} />
           <Route path="/summary" component={Summary} />
           <Route
             exact

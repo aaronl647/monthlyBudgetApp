@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeroContent.css";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 function HeroContent() {
   return (
     <div className="hero-container">
@@ -21,7 +21,7 @@ function HeroContent() {
         </p>
       </div>
       <div className="btn-container">
-        <Button variant="primary" size="lg" active href="/income">
+        <Button variant="success" size="lg" active href="/income">
           Get Started
         </Button>
         <Button variant="secondary" size="lg" active href="/summary">

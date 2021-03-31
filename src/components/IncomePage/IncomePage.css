@@ -1,0 +1,14 @@
+.income-container {
+  background-color: #34b30d;
+}
+
+.incomeAdd-container {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #ececec;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}

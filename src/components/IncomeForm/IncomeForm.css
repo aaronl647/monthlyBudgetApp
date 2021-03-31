@@ -1,0 +1,11 @@
+.border {
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.income-form {
+  overflow: hidden;
+  display: grid;
+  text-align: center;
+  grid-template-columns: 200px;
+  grid-gap: 12px;
+}

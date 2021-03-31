@@ -1,0 +1,10 @@
+.form-section {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
