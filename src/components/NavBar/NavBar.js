@@ -1,18 +1,19 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = (props) => {
   let nav = props.user ? (
     <div>
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="primary" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>
-        <span className="welcome">Welcome back, {props.user.name}!</span>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <span className="welcome-user">Welcome back, {props.user.name}!</span>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Entries">
               <NavDropdown.Item href="/expense">Expenses</NavDropdown.Item>
@@ -33,7 +34,7 @@ const NavBar = (props) => {
     </div>
   ) : (
     <div>
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="primary" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>

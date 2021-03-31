@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import userService from "./utils/userService";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
-import Home from "./components/pages/Home";
-import Entries from "./components/pages/Entries";
-import Summary from "./components/pages/Summary";
-import { Switch, Route } from "react-router-dom";
 import LoginPage from "./components/UserPages/LoginPage";
 import Signup from "./components/UserPages/Signup";
-import VerifyDelete from "./components/VerifyDelete/VerifyDelete";
-import userService from "./utils/userService";
+import Home from "./components/pages/Home";
+import Summary from "./components/pages/Summary/Summary";
+import { Switch, Route } from "react-router-dom";
+
+import Expense from "./components/Expense/Expense";
+import Income from "./components/Income/Income";
 
 export default class App extends Component {
   constructor() {
@@ -33,7 +34,8 @@ export default class App extends Component {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/entries" component={Entries} />
+          <Route path="/expense" component={Expense} />
+          <Route path="/income" component={Income} />
           <Route path="/summary" component={Summary} />
           <Route
             exact
@@ -55,7 +57,6 @@ export default class App extends Component {
               />
             )}
           />
-          <Route path="/delete" component={VerifyDelete} />
         </Switch>
       </div>
     );

@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ExpenseSummary from "../ExpenseSummary/ExpenseSummary";
-import IncomeSummary from "../IncomeSummary/IncomeSummary";
-
+import ExpenseSummary from "../../ExpenseSummary/ExpenseSummary";
+import IncomeSummary from "../../IncomeSummary/IncomeSummary";
+import "./Summary.css";
 function Summary() {
   return (
     <Container className="overview-container">

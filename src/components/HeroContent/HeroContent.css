@@ -1,4 +1,21 @@
 .hero-container {
+  background-color: #6c757d;
+}
+
+.title-container > h1 {
+  color: #ececec;
+  font-size: 5rem;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+
+.content-container {
+  padding: 0 120px 0 120px;
+  color: #ececec;
+}
+
+.btn-container {
   display: flex;
   justify-content: center;
+  padding-top: 2rem;
 }
