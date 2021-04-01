@@ -7,10 +7,10 @@ import { Figure } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function IncomePage() {
-  const totalIncome = (props) => {
+  const totalIncome = () => {
     budgetService
       .income()
-      .then((res, rej) => {
+      .then((res) => {
         return res;
       })
       .then((income) => {
@@ -38,12 +38,9 @@ function IncomePage() {
       <div className="next-button">
         <Link to="/expense">
           <Figure>
-            <Figure.Image
-              width={171}
-              height={180}
-              alt="171x180"
-              src="holder.js/171x180"
-            />
+            <Figure.Caption>
+              <i class="fas fa-arrow-right" />
+            </Figure.Caption>
             <Figure.Caption>Next Page</Figure.Caption>
           </Figure>
         </Link>

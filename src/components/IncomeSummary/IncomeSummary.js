@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./IncomeSummary.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import moment from "moment";
+import budgetService from "../../utils/budgetService";
 
 const Inc = (props) => (
   <tr>
@@ -41,18 +41,21 @@ export default class IncomeSummary extends Component {
     });
   }
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:4000/budget/income")
-      .then((result) => {
-        this.setState({ income: result.data, isOldestFirst: true });
+  incomeData() {
+    budgetService
+      .income()
+      .then((res) => {
+        return res;
       })
-      .catch(function (err) {
-        console.log(err);
+      .then((income) => {
+        this.setState({
+          income: income,
+        });
       });
   }
 
   incomeList() {
+    this.incomeData();
     return this.state.income.map(function (currentInc, i) {
       return <Inc item={currentInc} key={i} />;
     });
