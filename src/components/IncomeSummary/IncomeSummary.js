@@ -50,6 +50,7 @@ export default class IncomeSummary extends Component {
       .then((income) => {
         this.setState({
           income: income,
+          isOldestFirst: true,
         });
       });
   }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import moment from "moment";
+import budgetService from "../../utils/budgetService";
 
 const Exp = (props) => (
   <tr>
@@ -42,18 +42,18 @@ export default class ExpenseSummary extends Component {
     });
   }
 
-  componentDidMount() {
-    axios
-      .get("http://localhost:4000/budget/expense")
-      .then((result) => {
-        this.setState({ expense: result.data, isOldestFirst: true });
+  expenseData() {
+    budgetService
+      .expense()
+      .then((res) => {
+        return res;
       })
-      .catch(function (err) {
-        console.log(err);
+      .then((expense) => {
+        this.setState({ expense: expense, isOldestFirst: true });
       });
   }
-
   expenseList() {
+    this.expenseData();
     return this.state.expense.map(function (currentExp, i) {
       return <Exp item={currentExp} key={i} />;
     });
