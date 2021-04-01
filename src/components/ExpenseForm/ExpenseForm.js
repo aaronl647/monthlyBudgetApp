@@ -1,7 +1,7 @@
 // Form will be shown here, user will be able to add everything they need to
 import React, { Component } from "react";
 
-// import "./Expense.css";
+import "./ExpenseForm.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
@@ -78,9 +78,8 @@ export default class Expense extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Add Expenses Here</h1>
         <div className="border">
-          <form className="entry" onSubmit={this.onSubmit}>
+          <form className="expense-form" onSubmit={this.onSubmit}>
             <label>
               Description:
               <input
@@ -88,6 +87,7 @@ export default class Expense extends Component {
                 type="text"
                 value={this.state.description}
                 onChange={this.onChangeDescription}
+                required
               />
             </label>
             <label>
@@ -96,6 +96,7 @@ export default class Expense extends Component {
                 selected={this.state.startDate}
                 onChange={this.onChangeDateChange}
                 name="startDate"
+                required
               />
             </label>
             <label>
@@ -107,6 +108,7 @@ export default class Expense extends Component {
                 step="0.01"
                 value={this.state.amountDue}
                 onChange={this.onChangeAmountDue}
+                required
               />
             </label>
             <label>
@@ -116,6 +118,7 @@ export default class Expense extends Component {
                 type="text"
                 value={this.state.paymentOption}
                 onChange={this.onChangePaymentOption}
+                required
               />
             </label>
             <label>
@@ -124,6 +127,7 @@ export default class Expense extends Component {
                 className="occurance"
                 value={this.state.occurance}
                 onChange={this.onChangeOccurance}
+                required
               >
                 <option value="weekly">Weekly</option>
                 <option value="bi-weekly">Bi-Weekly</option>

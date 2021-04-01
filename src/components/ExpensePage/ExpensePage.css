@@ -1,14 +1,14 @@
-.income-container {
-  background-color: #ccedee;
+.expense-container {
+  background-color: #f8deb8;
 }
 
-.incomeAdd-container {
+.expenseAdd-container {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
-.income-container > h1 {
+.expense-container > h1 {
   color: #999999;
   padding-top: 4rem;
   font-size: 5.5rem;

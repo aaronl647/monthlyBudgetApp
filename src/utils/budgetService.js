@@ -10,8 +10,26 @@ function income() {
       if (res.ok) return res.json();
       throw new Error("Could not find Income!");
     })
-    .then((income) => {
-      console.log(income);
+    .then((result) => {
+      return result;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+function expense() {
+  return fetch(BASE_URL + "/expense", {
+    method: "GET",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+      throw new Error("Could not find Expense!");
+    })
+    .then((result) => {
+      return result;
     })
     .catch((err) => {
       console.log(err);
@@ -20,6 +38,7 @@ function income() {
 
 const budgetService = {
   income,
+  expense,
 };
 
 export default budgetService;

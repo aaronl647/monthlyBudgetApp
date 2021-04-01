@@ -40,8 +40,8 @@ const NavBar = (props) => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav.Link to="/login"> Log In</Nav.Link>
-          <Nav.Link to="/signup"> Sign Up</Nav.Link>
+          <Nav.Link href="/login"> Log In</Nav.Link>
+          <Nav.Link href="/signup"> Sign Up</Nav.Link>
         </Navbar.Collapse>
       </Navbar>
     </div>
