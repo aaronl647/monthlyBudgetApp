@@ -6,7 +6,7 @@ import "./NavBar.css";
 const NavBar = (props) => {
   let nav = props.user ? (
     <div>
-      <Navbar bg="primary" expand="lg" sticky="top">
+      <Navbar bg="light" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>
@@ -34,7 +34,7 @@ const NavBar = (props) => {
     </div>
   ) : (
     <div>
-      <Navbar bg="primary" expand="lg" sticky="top">
+      <Navbar bg="light" expand="lg" sticky="top">
         <Navbar.Brand>
           <Link to="/">Budget Tracker</Link>
         </Navbar.Brand>

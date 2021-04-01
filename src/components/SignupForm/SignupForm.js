@@ -25,7 +25,7 @@ export default class SignupForm extends Component {
       this.props.handleSignupOrLogin();
       this.props.history.push("/");
     } catch (err) {
-      console.log(err);
+      this.props.updateMessage(err.message);
     }
   };
 

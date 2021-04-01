@@ -9,8 +9,6 @@ import Home from "./components/pages/Home";
 import Summary from "./components/pages/Summary/Summary";
 import { Switch, Route } from "react-router-dom";
 
-// import Expense from "./components/Expense/Expense";
-// import Income from "./components/IncomeForm/IncomeForm";
 import ExpensePage from "./components/ExpensePage/ExpensePage";
 import IncomePage from "./components/IncomePage/IncomePage";
 export default class App extends Component {

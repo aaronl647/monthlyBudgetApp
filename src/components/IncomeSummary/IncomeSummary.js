@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./IncomeSummary.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
@@ -63,7 +64,7 @@ export default class IncomeSummary extends Component {
 
   render() {
     return (
-      <div>
+      <div className="income-summary-container">
         <table
           className="table table-striped"
           style={{ marginTop: 20, alignItems: "center" }}

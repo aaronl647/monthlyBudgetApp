@@ -5,11 +5,13 @@ import "./FormButton.css";
 
 function FormButton() {
   const [showIncomeForm, setIncomeForm] = useState(false);
-  const onClick = () => setIncomeForm(true);
+  const onClick = () => setIncomeForm(!showIncomeForm);
   return (
     <div className="form-section">
       <div className="button-container">
-        <Button onClick={onClick}>+</Button>
+        <Button variant="success" onClick={onClick}>
+          {showIncomeForm ? "-" : "+"}
+        </Button>
       </div>
       <div className="content-container">
         {showIncomeForm ? <IncomeForm /> : null}
