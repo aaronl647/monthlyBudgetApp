@@ -1,5 +1,6 @@
 import React from "react";
 import "./Breakdown.css";
+import budgetService from "../../utils/budgetService";
 
 function Breakdown() {
   return (
@@ -16,6 +17,12 @@ function Breakdown() {
         <h4>Guilt-Free Spending</h4>
         <h4>Savings</h4>
         <h4>Investments</h4>
+      </div>
+      <div className="chart-container">
+        <h2>Charts </h2>
+      </div>
+      <div className="upcoming-container">
+        <h2>Upcoming Payments </h2>
       </div>
     </div>
   );
