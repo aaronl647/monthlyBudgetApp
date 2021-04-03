@@ -38,24 +38,12 @@ function ExpensePage() {
       <div className="navigation-buttons">
         <Link to="/income">
           <Figure>
-            <Figure.Image
-              width={171}
-              height={180}
-              alt="171x180"
-              src="holder.js/171x180"
-            />
             <Figure.Caption>Go Back</Figure.Caption>
           </Figure>
         </Link>
 
-        <Link to="/summary">
+        <Link to="/breakdown">
           <Figure>
-            <Figure.Image
-              width={171}
-              height={180}
-              alt="171x180"
-              src="holder.js/171x180"
-            />
             <Figure.Caption>Next Page</Figure.Caption>
           </Figure>
         </Link>
