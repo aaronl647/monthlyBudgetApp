@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import budgetService from "../../utils/budgetService";
+import "./ExpenseSummary.css";
 
 const Exp = (props) => (
   <tr>
@@ -65,7 +66,7 @@ export default class ExpenseSummary extends Component {
 
   render() {
     return (
-      <div>
+      <div className="expense-summary-container">
         <table
           className="table table-striped"
           style={{ marginTop: 20, alignItems: "center" }}

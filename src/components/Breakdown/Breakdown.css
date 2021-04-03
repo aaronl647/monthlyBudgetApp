@@ -1,0 +1,12 @@
+h1 {
+  color: #999999;
+  padding-top: 4rem;
+  font-size: 5.5rem;
+  padding-bottom: 1rem;
+}
+
+.summary-section,
+.detailed-breakdown {
+  display: flex;
+  justify-content: space-evenly;
+}

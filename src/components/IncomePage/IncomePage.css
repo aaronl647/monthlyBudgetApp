@@ -25,3 +25,8 @@ h2 {
   display: flex;
   justify-content: center;
 }
+
+.income-form {
+  display: flex;
+  justify-content: center;
+}

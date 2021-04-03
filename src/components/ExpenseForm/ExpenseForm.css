@@ -9,4 +9,5 @@
   text-align: center;
   grid-template-columns: 200px;
   grid-gap: 12px;
+  justify-content: center;
 }

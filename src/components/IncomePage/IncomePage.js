@@ -1,6 +1,7 @@
 import React from "react";
-import FormButton from "../FormButton/FormButton";
+// import FormButton from "../FormButton/FormButton";
 import "./IncomePage.css";
+import IncomeForm from "../IncomeForm/IncomeForm";
 import IncomeSummary from "../IncomeSummary/IncomeSummary";
 import budgetService from "../../utils/budgetService";
 import { Figure } from "react-bootstrap";
@@ -31,7 +32,7 @@ function IncomePage() {
       <h1>Income</h1>
       <h2>${totalIncome()}</h2>
       <div className="incomeAdd-container">
-        <FormButton />
+        <IncomeForm />
       </div>
 
       <IncomeSummary />

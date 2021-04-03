@@ -1,6 +1,6 @@
 import React from "react";
-import FormButton from "../FormButton/FormButton";
 import "./ExpensePage.css";
+import ExpenseForm from "../ExpenseForm/ExpenseForm";
 import ExpenseSummary from "../ExpenseSummary/ExpenseSummary";
 import budgetService from "../../utils/budgetService";
 import { Figure } from "react-bootstrap";
@@ -31,7 +31,7 @@ function ExpensePage() {
       <h1>Expense</h1>
       <h2>${totalExpense()}</h2>
       <div className="expenseAdd-container">
-        <FormButton />
+        <ExpenseForm />
       </div>
 
       <ExpenseSummary />

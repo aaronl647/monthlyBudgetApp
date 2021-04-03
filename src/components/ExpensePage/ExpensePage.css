@@ -21,7 +21,7 @@ h2 {
   padding-bottom: 2rem;
 }
 
-.next-button {
+.navigation-buttons {
   display: flex;
   justify-content: center;
 }
