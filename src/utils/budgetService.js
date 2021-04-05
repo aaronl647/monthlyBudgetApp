@@ -36,27 +36,13 @@ function expense() {
     });
 }
 
-function totalInc() {
-  income().then((income) => {
-    let result = income.map((a) => a.amount);
-    const reducer = (acc, currentValue) => acc + currentValue;
-    return result.reduce(reducer);
-  });
-}
-
 function totalExp() {
-  expense().then((expense) => {
-    let result = expense.map((a) => a.amountDue);
-    const reducer = (acc, currentValue) => acc + currentValue;
-    return result.reduce(reducer);
-  });
+  expense();
 }
 
 const budgetService = {
   income,
   expense,
-  totalInc,
-  totalExp,
 };
 
 export default budgetService;
