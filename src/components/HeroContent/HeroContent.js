@@ -24,7 +24,7 @@ function HeroContent() {
         <Button variant="success" size="lg" active href="/income">
           Get Started
         </Button>
-        <Button variant="secondary" size="lg" active href="/summary">
+        <Button variant="secondary" size="lg" active href="/breakdown">
           View Breakdown
         </Button>
       </div>
