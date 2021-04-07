@@ -36,10 +36,6 @@ function expense() {
     });
 }
 
-function totalExp() {
-  expense();
-}
-
 const budgetService = {
   income,
   expense,

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import budgetService from "../../utils/budgetService";
+import "./SummarySection.css";
+// import myFunctions from "../../utils/myFunctions";
 
 export default class SummarySection extends Component {
   constructor() {
@@ -8,6 +10,9 @@ export default class SummarySection extends Component {
     this.state = {
       income: [],
       expense: [],
+      incomeTotal: 0,
+      expenseTotal: 0,
+      remainder: 0,
     };
   }
   componentDidMount() {
@@ -22,40 +27,44 @@ export default class SummarySection extends Component {
     });
   }
 
-  incomeTotal() {
-    const incTotal = this.state.income.reduce(
+  incomeTotal = () => {
+    let incTotal = this.state.income.reduce(
       (totalInc, income) => totalInc + income,
       0
     );
     return incTotal;
-  }
+  };
 
-  expenseTotal() {
+  expenseTotal = () => {
     const expTotal = this.state.expense.reduce(
       (totalExp, expense) => totalExp + expense,
       0
     );
     return expTotal;
-  }
+  };
 
-  remainder() {
+  remainder = () => {
     let difference = this.incomeTotal() - this.expenseTotal();
     return difference;
-  }
+  };
 
   render() {
+    const { incomeTotal, expenseTotal } = this.state;
+
     return (
-      <div>
+      <div className="summary-section">
         <div>
           <h4>Income</h4>
-          <h5>$ {this.incomeTotal()}</h5>
+          <div>{this.props.render({ incomeTotal: this.incomeTotal() })}</div>
         </div>
         <div>
           <h4>Expense</h4>
-          <h5>$ {this.expenseTotal()}</h5>
+          <div>{this.props.render({ expenseTotal: this.expenseTotal() })}</div>
         </div>
-        <h4>Remainder</h4>
-        <h5>$ {this.remainder()}</h5>
+        <div>
+          <h4>Remainder</h4>
+          <div>{this.props.render({ remainder: this.remainder() })}</div>
+        </div>
       </div>
     );
   }

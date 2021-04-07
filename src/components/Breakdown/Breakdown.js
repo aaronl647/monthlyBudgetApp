@@ -12,24 +12,30 @@ export default class Breakdown extends Component {
   }
 
   render() {
-    // const totalIncome = budgetService.totalInc();
     return (
       <div>
         <h1>Breakdown</h1>
-        <h2>General Breakdown</h2>
-        <div className="summary-section">
-          <SummarySection />
-        </div>
+        <h2>Summary</h2>
+        <SummarySection
+          render={({ incomeTotal, expenseTotal, remainder }) => (
+            <div>
+              <div>
+                <h5>{incomeTotal}</h5>
+              </div>
+              <div>
+                <h5>{expenseTotal}</h5>
+              </div>
+              <div>
+                <h5> {remainder}</h5>
+              </div>
+            </div>
+          )}
+        />
+
         <h2>Detailed Breakdown</h2>
-        <div className="detailed-breakdown">
-          <DetailedSection />
-        </div>
-        <div className="chart-container">
-          <ChartSection />
-        </div>
-        <div className="upcoming-container">
-          <Upcoming />
-        </div>
+        <DetailedSection />
+        <ChartSection />
+        <Upcoming />
       </div>
     );
   }

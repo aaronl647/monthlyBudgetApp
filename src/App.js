@@ -38,6 +38,7 @@ export default class App extends Component {
           <Route path="/expense" component={ExpensePage} />
           <Route path="/income" component={IncomePage} />
           <Route path="/breakdown" component={Breakdown} />
+
           <Route
             exact
             path="/login"
