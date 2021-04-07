@@ -8,7 +8,7 @@ router.get("/expense", expenseCtrl.index);
 router.get("/expense/:id", expenseCtrl.show);
 router.post("/expense/add", expenseCtrl.newEntry);
 router.post("/expense/update/:id", expenseCtrl.updateEntry);
-router.get("/expense/delete/:id", expenseCtrl.verifyDelete);
+// router.get("/expense/delete/:id", expenseCtrl.verifyDelete);
 router.delete("/expense/delete/:id", expenseCtrl.deleteOne);
 
 //Income Routes

@@ -14,7 +14,14 @@ const Exp = (props) => (
     <td>
       <Link to={"/edit/" + props.item._id}>Edit</Link>
       <br />
-      <Link to={"/delete/" + props.item._id}>Delete </Link>
+      <Link
+        onClick={(exp) => {
+          console.log(exp);
+          budgetService.deleteExpense();
+        }}
+      >
+        Delete{" "}
+      </Link>
     </td>
   </tr>
 );

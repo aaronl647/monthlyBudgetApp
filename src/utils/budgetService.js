@@ -36,9 +36,21 @@ function expense() {
     });
 }
 
+function deleteExpense() {
+  return fetch(BASE_URL + "/expense/delete/:id", {
+    method: "DELETE",
+  }).then((res) => {
+    console.log(res);
+    this.setState({
+      status: "Delete Successful",
+    });
+  });
+}
+
 const budgetService = {
   income,
   expense,
+  deleteExpense,
 };
 
 export default budgetService;

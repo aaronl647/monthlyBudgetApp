@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Breakdown.css";
 import SummarySection from "../SummarySection/SummarySection";
-import DetailedSection from "../DetailedSection/DetailedSection";
 import ChartSection from "../ChartSection/ChartSection";
 import Upcoming from "../Upcoming/Upcoming";
 
@@ -14,10 +13,8 @@ export default class Breakdown extends Component {
   render() {
     return (
       <div>
-        <h1>Breakdown</h1>
-        <h2>Summary</h2>
         <SummarySection
-          render={({ incomeTotal, expenseTotal, remainder }) => (
+          render={({ incomeTotal, expenseTotal, remainder, GFS }) => (
             <div>
               <div>
                 <h5>{incomeTotal}</h5>
@@ -28,12 +25,13 @@ export default class Breakdown extends Component {
               <div>
                 <h5> {remainder}</h5>
               </div>
+              <div>
+                <h5> {GFS}</h5>
+              </div>
             </div>
           )}
         />
 
-        <h2>Detailed Breakdown</h2>
-        <DetailedSection />
         <ChartSection />
         <Upcoming />
       </div>

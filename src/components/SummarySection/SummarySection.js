@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import budgetService from "../../utils/budgetService";
 import "./SummarySection.css";
-// import myFunctions from "../../utils/myFunctions";
+// import incomeTotal from "../../utils/myFunctions";
 
 export default class SummarySection extends Component {
   constructor() {
@@ -13,6 +13,9 @@ export default class SummarySection extends Component {
       incomeTotal: 0,
       expenseTotal: 0,
       remainder: 0,
+      GFS: 0,
+      savings: 0,
+      investments: 0,
     };
   }
   componentDidMount() {
@@ -48,22 +51,56 @@ export default class SummarySection extends Component {
     return difference;
   };
 
-  render() {
-    const { incomeTotal, expenseTotal } = this.state;
+  gfs = () => {
+    let gfAmount = 69;
+    return gfAmount;
+  };
 
+  render() {
     return (
-      <div className="summary-section">
+      <div className="summary-container">
+        <h1>Breakdown</h1>
+        <>
+          <h1>Summary</h1>
+          <div className="detailed-section">
+            <div>
+              <h4>Income</h4>
+              <div>
+                {this.props.render({ incomeTotal: this.incomeTotal() })}
+              </div>
+            </div>
+            <div>
+              <h4>Expense</h4>
+              <div>
+                {this.props.render({ expenseTotal: this.expenseTotal() })}
+              </div>
+            </div>
+            <div>
+              <h4>Remainder</h4>
+              <div>{this.props.render({ remainder: this.remainder() })}</div>
+            </div>
+          </div>
+        </>
         <div>
-          <h4>Income</h4>
-          <div>{this.props.render({ incomeTotal: this.incomeTotal() })}</div>
-        </div>
-        <div>
-          <h4>Expense</h4>
-          <div>{this.props.render({ expenseTotal: this.expenseTotal() })}</div>
-        </div>
-        <div>
-          <h4>Remainder</h4>
-          <div>{this.props.render({ remainder: this.remainder() })}</div>
+          <>
+            <h1>Detailed Breakdown</h1>
+            <div className="detailed-section">
+              <div>
+                <h4>Guilt Free Spending</h4>
+                <div>{this.props.render({ GFS: this.gfs() })}</div>
+              </div>
+              <div>
+                <h4>Savings</h4>
+                <div>
+                  {this.props.render({ expenseTotal: this.expenseTotal() })}
+                </div>
+              </div>
+              <div>
+                <h4>Investments</h4>
+                <div>{this.props.render({ remainder: this.remainder() })}</div>
+              </div>
+            </div>
+          </>
         </div>
       </div>
     );
