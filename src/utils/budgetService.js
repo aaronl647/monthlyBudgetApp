@@ -29,6 +29,7 @@ function expense() {
       throw new Error("Could not find Expense!");
     })
     .then((result) => {
+      // console.log(result);
       return result;
     })
     .catch((err) => {
