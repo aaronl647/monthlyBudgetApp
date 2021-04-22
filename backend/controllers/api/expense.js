@@ -5,7 +5,6 @@ module.exports = {
   show,
   newEntry,
   updateEntry,
-  verifyDelete,
   deleteOne,
 };
 
@@ -56,23 +55,18 @@ async function updateEntry(req, res) {
   });
 }
 
-async function verifyDelete(req, res) {
-  const id = req.params.id;
-  await Expense.findById(id, (err, expense) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.status(200).json(expense);
-    }
+async function deleteOne(res, req) {
+  console.log(res);
+  let exp = new Promise((res, req) => {});
+  exp.then((value) => {
+    console.log(value);
   });
-}
-
-async function deleteOne(req, res) {
-  await Expense.findOneAndDelete({ _id: req.params.id }, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.status(200).send("deleted expense!");
-    }
-  });
+  // console.log(req);
+  // await Expense.deleteOne({ _id: _id })
+  //   .then(function () {
+  //     console.log("Data Deleted.");
+  //   })
+  //   .catch(function (err) {
+  //     console.log(err);
+  //   });
 }

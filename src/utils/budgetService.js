@@ -37,14 +37,30 @@ function expense() {
     });
 }
 
+// function getExpenseID() {
+//   return fetch(BASE_URL + "/expense/delete/:id", {
+//     method: "GET",
+//     headers: new Headers({ "Content-Type": "application/json" }),
+//     body: JSON.stringify(),
+//   })
+//     .then((res, err) => {
+//       if (res.ok === true) {
+//         // console.log(res.json());
+//         return res.json();
+//       } else {
+//         res.json(err);
+//       }
+//     })
+//     .then((expense) => console.log(expense));
+// }
+
 function deleteExpense() {
   return fetch(BASE_URL + "/expense/delete/:id", {
     method: "DELETE",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(),
   }).then((res) => {
-    console.log(res);
-    this.setState({
-      status: "Delete Successful",
-    });
+    console.log("hello");
   });
 }
 
@@ -52,6 +68,7 @@ const budgetService = {
   income,
   expense,
   deleteExpense,
+  // getExpenseID,
 };
 
 export default budgetService;

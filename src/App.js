@@ -11,6 +11,7 @@ import Home from "./components/pages/Home";
 import Breakdown from "./components/Breakdown/Breakdown";
 import ExpensePage from "./components/ExpensePage/ExpensePage";
 import IncomePage from "./components/IncomePage/IncomePage";
+import ConfirmDelete from "./components/ConfirmDelete/ConfirmDelete";
 
 export default class App extends Component {
   constructor() {
@@ -59,6 +60,7 @@ export default class App extends Component {
               />
             )}
           />
+          <Route exact path="/delete/:id" component={ConfirmDelete} />
         </Switch>
       </div>
     );

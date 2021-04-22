@@ -14,7 +14,14 @@ export default class Breakdown extends Component {
     return (
       <div>
         <SummarySection
-          render={({ incomeTotal, expenseTotal, remainder, GFS }) => (
+          render={({
+            incomeTotal,
+            expenseTotal,
+            remainder,
+            GFS,
+            savings,
+            investments,
+          }) => (
             <div>
               <div>
                 <h5>{incomeTotal}</h5>
@@ -27,6 +34,12 @@ export default class Breakdown extends Component {
               </div>
               <div>
                 <h5> {GFS}</h5>
+              </div>
+              <div>
+                <h5> {savings}</h5>
+              </div>
+              <div>
+                <h5> {investments}</h5>
               </div>
             </div>
           )}

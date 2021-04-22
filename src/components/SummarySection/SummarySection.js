@@ -30,12 +30,17 @@ export default class SummarySection extends Component {
     });
   }
 
+  getPercentage = (x, y) => {
+    let percentage = (x / y) * 100;
+    return percentage;
+  };
+
   incomeTotal = () => {
     let incTotal = this.state.income.reduce(
       (totalInc, income) => totalInc + income,
       0
     );
-    return incTotal;
+    return incTotal.toFixed(2);
   };
 
   expenseTotal = () => {
@@ -43,18 +48,20 @@ export default class SummarySection extends Component {
       (totalExp, expense) => totalExp + expense,
       0
     );
-    return expTotal;
+    return expTotal.toFixed(2);
   };
 
   remainder = () => {
+    var remainderPercentage = this.getPercentage(
+      this.expenseTotal(),
+      this.incomeTotal()
+    );
+    console.log(remainderPercentage);
     let difference = this.incomeTotal() - this.expenseTotal();
-    return difference;
+    return difference.toFixed(2);
   };
 
-  gfs = () => {
-    let gfAmount = 69;
-    return gfAmount;
-  };
+  gfs = () => {};
 
   render() {
     return (
@@ -91,13 +98,13 @@ export default class SummarySection extends Component {
               </div>
               <div>
                 <h4>Savings</h4>
-                <div>
-                  {this.props.render({ expenseTotal: this.expenseTotal() })}
-                </div>
+                <div>{this.props.render({ savings: this.expenseTotal() })}</div>
               </div>
               <div>
                 <h4>Investments</h4>
-                <div>{this.props.render({ remainder: this.remainder() })}</div>
+                <div>
+                  {this.props.render({ investments: this.remainder() })}
+                </div>
               </div>
             </div>
           </>

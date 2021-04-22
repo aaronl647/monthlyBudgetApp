@@ -12,16 +12,7 @@ const Exp = (props) => (
     <td>{props.item.paymentOption}</td>
     <td>{props.item.occurance}</td>
     <td>
-      <Link to={"/edit/" + props.item._id}>Edit</Link>
-      <br />
-      <Link
-        onClick={(exp) => {
-          console.log(exp);
-          budgetService.deleteExpense();
-        }}
-      >
-        Delete{" "}
-      </Link>
+      <Link to={"/delete/" + props.item._id}>Edit/Delete</Link>
     </td>
   </tr>
 );
@@ -60,10 +51,11 @@ export default class ExpenseSummary extends Component {
         this.setState({ expense: expense, isOldestFirst: true });
       });
   }
+
   expenseList() {
     this.expenseData();
     return this.state.expense.map(function (currentExp, i) {
-      return <Exp item={currentExp} key={i} />;
+      return <Exp item={currentExp} id={currentExp._id} key={i} />;
     });
   }
 
