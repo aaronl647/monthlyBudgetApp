@@ -11,7 +11,7 @@ export default class Slider extends Component {
           value={this.props.value}
           onChange={this.props.onChange}
         />
-        {this.props.value}
+        <p>{this.props.value}</p>
       </div>
     );
   }

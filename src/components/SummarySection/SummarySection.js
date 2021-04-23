@@ -33,10 +33,21 @@ export default class SummarySection extends Component {
       this.setState({ expense: result });
     });
   }
-  getSliderNumber = (e) => {
+
+  // SLIDER VALUES //
+  getSliderGValue = (e) => {
     const newValue = e.target.valueAsNumber;
-    console.log(newValue);
     this.setState({ gValue: newValue });
+  };
+
+  getSliderSValue = (e) => {
+    const newValue = e.target.valueAsNumber;
+    this.setState({ sValue: newValue });
+  };
+
+  getSliderIValue = (e) => {
+    const newValue = e.target.valueAsNumber;
+    this.setState({ iValue: newValue });
   };
 
   getPercentage = (x, y) => {
@@ -65,10 +76,25 @@ export default class SummarySection extends Component {
     return difference.toFixed(2);
   };
 
-  gfs = () => {};
+  gfs = () => {
+    let gPercentage = this.state.gValue;
+    let gTotal = (gPercentage / 100) * this.remainder();
+    return gTotal.toFixed(2);
+  };
+
+  savings = () => {
+    let sPercentage = this.state.sValue;
+    let sTotal = (sPercentage / 100) * this.remainder();
+    return sTotal.toFixed(2);
+  };
+
+  investments = () => {
+    let iPercentage = this.state.iValue;
+    let iTotal = (iPercentage / 100) * this.remainder();
+    return iTotal.toFixed(2);
+  };
 
   render() {
-    const { value, onChange } = this.props;
     return (
       <div className="summary-container">
         <h1>Breakdown</h1>
@@ -104,26 +130,35 @@ export default class SummarySection extends Component {
                   <Slider
                     value={this.state.gValue}
                     onChange={(e) => {
-                      this.getSliderNumber(e);
+                      this.getSliderGValue(e);
                     }}
                   />
-                  {value}
                 </div>
               </div>
               <div>
                 <h4>Savings</h4>
-                <div>{this.props.render({ savings: this.expenseTotal() })}</div>
+                <div>{this.props.render({ savings: this.savings() })}</div>
                 <div className="slider-component">
-                  <Slider />
+                  <Slider
+                    value={this.state.sValue}
+                    onChange={(e) => {
+                      this.getSliderSValue(e);
+                    }}
+                  />
                 </div>
               </div>
               <div>
                 <h4>Investments</h4>
                 <div>
-                  {this.props.render({ investments: this.remainder() })}
+                  {this.props.render({ investments: this.investments() })}
                 </div>
                 <div className="slider-component">
-                  <Slider />
+                  <Slider
+                    value={this.state.iValue}
+                    onChange={(e) => {
+                      this.getSliderIValue(e);
+                    }}
+                  />
                 </div>
               </div>
             </div>

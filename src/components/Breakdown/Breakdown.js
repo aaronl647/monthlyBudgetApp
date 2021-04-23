@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Breakdown.css";
 import SummarySection from "../SummarySection/SummarySection";
-import ChartSection from "../ChartSection/ChartSection";
-import Upcoming from "../Upcoming/Upcoming";
+// import ChartSection from "../ChartSection/ChartSection";
+// import Upcoming from "../Upcoming/Upcoming";
 
 export default class Breakdown extends Component {
   constructor(props) {
@@ -44,9 +44,9 @@ export default class Breakdown extends Component {
             </div>
           )}
         />
-
+        {/* 
         <ChartSection />
-        <Upcoming />
+        <Upcoming /> */}
       </div>
     );
   }
